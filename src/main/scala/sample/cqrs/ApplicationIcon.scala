@@ -25,10 +25,8 @@ object ApplicationIcon {
   }
 
   final case class Get(replyTo: ActorRef[Summary]) extends Command
-  final case class Summary(x: Int, y: Int, name: String, nickname: String) extends CborSerializable
-  final case class ChangePosition(applicationIconId: String, x: Int, y: Int, replyTo: ActorRef[StatusReply[Summary]]) extends Command {}
+  final case class ChangePosition(x: Int, y: Int, replyTo: ActorRef[StatusReply[Summary]]) extends Command {}
   final case class ChangeName(name: String, replyTo: ActorRef[StatusReply[Summary]]) extends Command {}
-
   final case class ChangeNickname(nickname: String, replyTo: ActorRef[StatusReply[Summary]]) extends Command {}
   val EntityKey: EntityTypeKey[Command] = EntityTypeKey[Command]("ApplicationIcon")
 
@@ -39,6 +37,8 @@ object ApplicationIcon {
       ApplicationIcon(entityContext.entityId, Set(eventProcessorTag))
     }.withRole("write-model"))
   }
+
+  final case class Summary(x: Int, y: Int, name: String, nickname: String) extends CborSerializable
 
   sealed trait Event extends CborSerializable {
     def applicationIconId: String
@@ -67,7 +67,7 @@ object ApplicationIcon {
     command match {
       case Get(replyTo) =>
         Effect.reply(replyTo)(state.toSummary)
-      case ChangePosition(applicationIconId, x, y, replyTo) =>
+      case ChangePosition( x, y, replyTo) =>
         Effect
           .persist(PositionChanged(applicationIconId, x, y))
           .thenReply(replyTo)(updatedApplicationIcon => StatusReply.Success(updatedApplicationIcon.toSummary))

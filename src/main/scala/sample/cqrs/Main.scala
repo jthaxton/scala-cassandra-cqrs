@@ -139,9 +139,9 @@ object Guardian {
 
       val settings = EventProcessorSettings(system)
 
-      val httpPort = context.system.settings.config.getInt("shopping.http.port")
+      val httpPort = context.system.settings.config.getInt("icon.http.port")
 
-      ShoppingCart.init(system, settings)
+//      ShoppingCart.init(system, settings)
       ApplicationIcon.init(system, settings)
 
       if (Cluster(system).selfMember.hasRole("read-model")) {
@@ -151,12 +151,12 @@ object Guardian {
         val shardedDaemonProcessSettings =
           ShardedDaemonProcessSettings(system).withShardingSettings(shardingSettings.withRole("read-model"))
 
-        ShardedDaemonProcess(system).init(
-          name = "ShoppingCartProjection",
-          settings.parallelism,
-          n => ProjectionBehavior(createProjectionFor(system, settings, n)),
-          shardedDaemonProcessSettings,
-          Some(ProjectionBehavior.Stop))
+//        ShardedDaemonProcess(system).init(
+//          name = "ShoppingCartProjection",
+//          settings.parallelism,
+//          n => ProjectionBehavior(createProjectionFor(system, settings, n)),
+//          shardedDaemonProcessSettings,
+//          Some(ProjectionBehavior.Stop))
 
         ShardedDaemonProcess(system).init(
           name = "ApplicationIconProjection",

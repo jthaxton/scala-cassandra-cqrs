@@ -1,7 +1,7 @@
 package sample.cqrs
 
 import scala.concurrent.Future
-import akka.actor.typed.ActorRef
+//import akka.actor.typed.ActorRef
 import akka.actor.typed.ActorSystem
 import akka.cluster.sharding.typed.scaladsl.ClusterSharding
 import akka.http.scaladsl.model.StatusCodes
@@ -35,9 +35,9 @@ class ApplicationIconRoutes()(implicit system: ActorSystem[_]) {
                 val entityRef =
                   sharding.entityRefFor(ApplicationIcon.EntityKey, data.applicationIconId)
                 val reply: Future[StatusReply[ApplicationIcon.Summary]] =
-                  entityRef.ask(ApplicationIcon.ChangePosition(data.applicationIconId, data.x, data.y, _))
+                  entityRef.ask(ApplicationIcon.ChangePosition(data.x, data.y, _))
                 onSuccess(reply) {
-                  case StatusReply.Success(summary: ApplicationIcon.Summary) =>
+                  case StatusReply.Success(summary: "ok") =>
                     complete(StatusCodes.OK -> summary)
                   case StatusReply.Error(reason) =>
                     complete(StatusCodes.BadRequest -> reason)
@@ -101,8 +101,8 @@ object ApplicationIconJsonFormats {
   // import the default encoders for primitive types (Int, String, Lists etc)
   import spray.json.DefaultJsonProtocol._
 
-  implicit val summaryFormat: RootJsonFormat[ApplicationIcon.Summary] =
-    jsonFormat2(ApplicationIcon.Summary)
+//  implicit val summaryFormat: RootJsonFormat[ShoppingCart.Summary] =
+//    jsonFormat2(ShoppingCart.Summary)
   implicit val changePositionFormat: RootJsonFormat[ApplicationIconRoutes.ChangePosition] =
     jsonFormat3(ApplicationIconRoutes.ChangePosition)
 //  implicit val changeNicknameFormat: RootJsonFormat[ApplicationIconRoutes.ChangeNickname] =

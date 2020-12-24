@@ -1,21 +1,8 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/joethaxton/Downloads/akka-samples-cqrs-scala 2/src/main/scala/sample/cqrs/ApplicationIconRoutes.scala:105:33: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : sample.cqrs.ApplicationIcon.Summary.type[0m
-[0m[[0m[31merror[0m] [0m[0m required: (?, ?) => sample.cqrs.ApplicationIcon.Summary[0m
-[0m[[0m[31merror[0m] [0m[0m    jsonFormat2(ApplicationIcon.Summary)[0m
-[0m[[0m[31merror[0m] [0m[0m                                ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/joethaxton/Downloads/akka-samples-cqrs-scala 2/src/main/scala/sample/cqrs/ApplicationIconRoutes.scala:107:16: could not find implicit value for evidence parameter of type spray.json.DefaultJsonProtocol.JF[Integer] (Cannot find JsonWriter or JsonFormat type class for Integer)[0m
-[0m[[0m[31merror[0m] [0m[0m    jsonFormat3(ApplicationIconRoutes.ChangePosition)[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/Users/joethaxton/Downloads/akka-samples-cqrs-scala 2/src/main/scala/sample/cqrs/ApplicationIconRoutes.scala:109:39: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : sample.cqrs.ApplicationIconRoutes.ChangeNickname.type[0m
-[0m[[0m[31merror[0m] [0m[0m required: (?, ?, ?) => sample.cqrs.ApplicationIconRoutes.ChangeNickname[0m
-[0m[[0m[31merror[0m] [0m[0m    jsonFormat3(ApplicationIconRoutes.ChangeNickname)[0m
-[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m/Users/joethaxton/Downloads/akka-samples-cqrs-scala 2/src/main/scala/sample/cqrs/ApplicationIcon.scala:3:59: Unused import[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\jthax\Desktop\code\scala-cassandra-cqrs\src\main\scala\sample\cqrs\ApplicationIcon.scala:3:59: Unused import[0m
 [0m[[0m[33mwarn[0m] [0m[0mimport akka.actor.typed.{ActorRef, ActorSystem, Behavior, SupervisorStrategy}[0m
 [0m[[0m[33mwarn[0m] [0m[0m                                                          ^[0m
-[0m[[0m[33mwarn[0m] [0m[0m/Users/joethaxton/Downloads/akka-samples-cqrs-scala 2/src/main/scala/sample/cqrs/ApplicationIconRoutes.scala:4:25: Unused import[0m
-[0m[[0m[33mwarn[0m] [0m[0mimport akka.actor.typed.ActorRef[0m
-[0m[[0m[33mwarn[0m] [0m[0m                        ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mC:\Users\jthax\Desktop\code\scala-cassandra-cqrs\src\main\scala\sample\cqrs\ApplicationIcon.scala:80:5: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: NicknameChanged(_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m    event match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m    ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mtwo warnings found[0m
-[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
