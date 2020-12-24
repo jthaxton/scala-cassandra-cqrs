@@ -1,0 +1,3 @@
+[debug] "not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/Users/joethaxton/Downloads/akka-samples-cqrs-scala%202/project/"), "akka-samples-cqrs-scala-2-build")...
+[debug] Done updating ProjectRef(uri("file:/Users/joethaxton/Downloads/akka-samples-cqrs-scala%202/project/"), "akka-samples-cqrs-scala-2-build")
